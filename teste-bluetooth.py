@@ -1,11 +1,14 @@
-import serial, time
+from dataclasses import dataclass
+import bluetooth
+import struct
 
-ard = serial.Serial('COM3', 9600)
+bd_addr = "00:19:07:00:39:ab"
+port = 1
 
-dados = ard.readline()
+sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+sock.connect((bd_addr, port))
+print('Conectado')
 
-while 1:
-    print (dados)
-    time.sleep(3)
-
-
+while True:
+    data = sock.recv(409600000)
+    print(data.decode('utf-8'))
