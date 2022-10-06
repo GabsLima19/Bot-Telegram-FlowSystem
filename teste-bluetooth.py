@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 import bluetooth
-import struct
 
 bd_addr = "00:19:07:00:39:ab"
 port = 1

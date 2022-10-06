@@ -4,15 +4,27 @@ import json
 import os
 import telegram_send
 
+#sensor bluetooth
+from dataclasses import dataclass
+import bluetooth
+
+bd_addr = "00:19:07:00:39:ab"
+port = 1
+
+sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+sock.connect((bd_addr, port))
+print('Conectado')
+data = sock.recv(409600000).decode('utf-8')
+
+#COMEÇOBOT
 class TelegramBot:
     def __init__(self):
-        iTOKEN  = '5498278811:AAEHRxD7ZxXKmDIxFgB2U3PTTgBTGaWDSqE'
+        iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
-        self.fluxo = 90
-        self.fluxo2 = 2000
+        self.fluxo = data
 
-        if self.fluxo >= 100:
-            telegram_send.send(messages=["Vazamento!!!!"])
+        #if self.fluxo >= 100:
+            #telegram_send.send(messages=["Vazamento!!!!"])
 
     def Iniciar(self):
         iUPDATE_ID = None
@@ -38,8 +50,8 @@ class TelegramBot:
     def gerar_respostas(self, mensagem, primeira_mensagem):
         print('mensagem do cliente: ' + str(mensagem))
 
-        #if self.fluxo == 100:  #primeira_mensagem == True or mensagem.lower() in (''):
-            #return f'''O que deseja saber?{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
+        if primeira_mensagem == True or mensagem.lower() in (''):
+            return f'''O que deseja saber?{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
 
         if mensagem == '1':
             return self.fluxo

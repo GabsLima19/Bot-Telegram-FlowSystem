@@ -13,6 +13,7 @@ float WATER = 0;
 float TOTAL = 0;
 float LS = 0;
 const int input = A0;
+float teste = 0;
  
 void setup()
 {
@@ -38,15 +39,14 @@ void loop()
         if(isinf(FREQUENCY)){
         }
         else{
-            Serial.println(WATER);
-        }
-     }
-
-     if(FREQUENCY >= 0){
-        if(isinf(FREQUENCY)){
-        }
-        else{
-            esp8266.println(WATER);
+          if (LS >= 0.50){
+            Serial.println("VAZAMENTO!");
+            esp8266.println("VAZAMENTO!");
+          }
+          else {
+            Serial.println(LS);
+            esp8266.println(LS);
+          }
         }
      }
 }
