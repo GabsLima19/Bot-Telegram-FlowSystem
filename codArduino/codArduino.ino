@@ -39,7 +39,7 @@ void loop()
         if(isinf(FREQUENCY)){
         }
         else{
-          if (LS >= 0.50){
+          if (LS >= 1.00){
             Serial.println("VAZAMENTO!");
             esp8266.println("VAZAMENTO!");
           }

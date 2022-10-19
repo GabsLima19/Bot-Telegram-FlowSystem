@@ -9,3 +9,6 @@ class TelegramBot:
 
 bot = TelegramBot()
 
+
+#if self.fluxo >= 100:
+    #telegram_send.send(messages=["Vazamento!!!!"])
