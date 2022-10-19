@@ -3,7 +3,7 @@ import requests
 import time
 import json
 import os
-import telegram_send
+#import telegram_send
 
 #imports bluetooth
 from dataclasses import dataclass
@@ -12,16 +12,18 @@ import bluetooth
 #import threads
 import threading
 
+     
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
         iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
-        self.fluxo = 0
+        data = 0
+        self.fluxo = data
         self.totalfluxo = 150
 
     #função bluetooth conexão 
-    def dadosbluetooth(self, fluxo):
+    def dadosbluetooth():
         bd_addr = "00:19:07:00:39:ab"
         port = 1
 
@@ -30,12 +32,9 @@ class TelegramBot:
         print('DISPOSITIVO BLUETOOTH CONECTADO')
 
         while True:
-            self.fluxo = sock.recv(409600000)
-            self.fluxo.decode('utf-8')
+            data = sock.recv(409600000)
+            print(data.decode('utf-8'))
 
-    #def retorna_dados(self):
-        return self.fluxo
-            
     threading.Thread(target=dadosbluetooth).start()
 
     #funções bot             
@@ -53,6 +52,8 @@ class TelegramBot:
                     primeira_mensagem = int(dado["message"]["message_id"]) == 1
                     resposta = self.gerar_respostas(mensagem, primeira_mensagem)
                     self.responder(resposta, chat_id)
+
+    #threading.Thread(target=Iniciar).start()
 
     def ler_novas_mensagens(self, iUPDATE_ID):
         iLINK_REQ = f'{self.iURL}getUpdates?timeout=5'
