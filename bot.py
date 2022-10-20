@@ -3,8 +3,7 @@ import requests
 import time
 import json
 import os
-#import telegram_send
-import threading
+import telegram_send
     
 #COMEÇOBOT
 class TelegramBot:

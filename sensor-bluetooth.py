@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 import bluetooth
-import threading
+
+#Depois de instalar as dependencias pra biblioteca pybluez, instalar a biblioteca manualmente na pasta dela.
+#comando: python setup.py install
 
 bd_addr = "00:19:07:00:39:ab"
 port = 1
@@ -18,12 +20,11 @@ while True:
     print(data)
     file = open(arquivo, "a")
     file.write(data)
-    #file.
     #linha = linha+1
     
 
-print("TERMINOU DE LER")
-file.close()
+#print("TERMINOU DE LER")
+#file.close()
 #threading.Thread(target=teste).start()
 
 
