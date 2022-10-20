@@ -3,7 +3,7 @@ import requests
 import time
 import json
 import os
-import telegram_send
+#import telegram_send
     
 #COMEÇOBOT
 class TelegramBot:
@@ -53,7 +53,7 @@ class TelegramBot:
             self.content = [x.rstrip('\n') for x in self.content] 
             print(self.content)
 
-            return self.content[-2]
+            return (self.content[-2] + "L")
 
         elif mensagem == '2':
             return self.totalfluxo
@@ -63,7 +63,7 @@ class TelegramBot:
         #elif mensagem.lower() in ('n', 'não'):
             #return ''' Item não incluso! Informe o codigo do item: '''
         else:
-            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água atual{os.linesep}2- Função ainda não definida{os.linesep}'''
+            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água atual{os.linesep}'''
 
 
     def responder(self, resposta, chat_id):
