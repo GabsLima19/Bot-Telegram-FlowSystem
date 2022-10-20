@@ -4,38 +4,17 @@ import time
 import json
 import os
 #import telegram_send
-
-#imports bluetooth
-from dataclasses import dataclass
-import bluetooth
-
-#import threads
 import threading
-
-     
+    
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
         iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
-        data = 0
-        self.fluxo = data
+        #self.fluxo = content
         self.totalfluxo = 150
 
-    #função bluetooth conexão 
-    def dadosbluetooth():
-        bd_addr = "00:19:07:00:39:ab"
-        port = 1
-
-        sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-        sock.connect((bd_addr, port))
-        print('DISPOSITIVO BLUETOOTH CONECTADO')
-
-        while True:
-            data = sock.recv(409600000)
-            print(data.decode('utf-8'))
-
-    threading.Thread(target=dadosbluetooth).start()
+    #threading.Thread(target=lerdados).start()
 
     #funções bot             
     def Iniciar(self):
@@ -69,7 +48,13 @@ class TelegramBot:
             return f'''O que deseja saber?{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
 
         if mensagem == '1':
-            return self.fluxo
+        #pegar valor do sensor no arquivo
+            with open('dados.csv') as f:
+                self.content = f.readlines()
+            self.content = [x.rstrip('\n') for x in self.content] 
+            print(self.content)
+
+            return self.content[-2]
 
         elif mensagem == '2':
             return self.totalfluxo
@@ -79,7 +64,7 @@ class TelegramBot:
         #elif mensagem.lower() in ('n', 'não'):
             #return ''' Item não incluso! Informe o codigo do item: '''
         else:
-            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
+            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água atual{os.linesep}2- Função ainda não definida{os.linesep}'''
 
 
     def responder(self, resposta, chat_id):
