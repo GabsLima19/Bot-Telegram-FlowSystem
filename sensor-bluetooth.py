@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import bluetooth
+import pandas as pd
 
 #Depois de instalar as dependencias pra biblioteca pybluez, instalar a biblioteca manualmente na pasta dela.
 #comando: python setup.py install
@@ -26,7 +27,6 @@ while True:
     file = open(arquivo, "a")
     file.write(data)
     #linha = linha+1
-    
 
 #print("TERMINOU DE LER")
 #file.close()

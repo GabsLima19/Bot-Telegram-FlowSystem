@@ -66,10 +66,10 @@ void loop()
         }
         else{
             Serial.print(LS2);
-            Serial.print(",");
+            Serial.print(";");
             
             esp8266.print(LS2);
-            esp8266.print(",");
+            esp8266.print(";");
           }
         }
 }
