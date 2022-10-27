@@ -15,9 +15,14 @@ arquivo = "dados.csv"
 #amostra = 10
 #linha = 0
 
+dados = []
+dados2 = []
+
 while True:
     data = str(sock.recv(409600000).decode('utf-8'))
+    
     print(data)
+
     file = open(arquivo, "a")
     file.write(data)
     #linha = linha+1

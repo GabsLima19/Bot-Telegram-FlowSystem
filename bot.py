@@ -53,7 +53,7 @@ class TelegramBot:
             self.content = [x.rstrip('\n') for x in self.content] 
             print(self.content)
 
-            return (self.content[-2] + "L")
+            return (self.content[-1] + "L")
 
         elif mensagem == '2':
             return self.totalfluxo
