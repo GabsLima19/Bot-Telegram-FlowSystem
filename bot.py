@@ -4,16 +4,15 @@ import time
 import json
 import os
 #import telegram_send
-    
+from recebersensores import lersensores
+   
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
         iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
-        #self.fluxo = content
-        self.totalfluxo = 150
-
-    #threading.Thread(target=lerdados).start()
+        self.sensor1 = lersensores()
+        #self.sensor1 = lersensor2()
 
     #funções bot             
     def Iniciar(self):
@@ -47,23 +46,17 @@ class TelegramBot:
             return f'''O que deseja saber?{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
 
         if mensagem == '1':
-        #pegar valor do sensor no arquivo
-            with open('dados.csv') as f:
-                self.content = f.readlines()
-            self.content = [x.rstrip('\n') for x in self.content] 
-            print(self.content)
-
-            return (self.content[-2] + "L")
+            return self.sensor1
 
         elif mensagem == '2':
-            return self.totalfluxo
+            return self.sensor1
 
         #elif mensagem.lower() in ('s', 'sim'):
             #return ''' Pedido Confirmado! '''
         #elif mensagem.lower() in ('n', 'não'):
             #return ''' Item não incluso! Informe o codigo do item: '''
         else:
-            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água atual{os.linesep}'''
+            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Dados do Sensor 1{os.linesep}2- Dados do Sensor 2{os.linesep}'''
 
 
     def responder(self, resposta, chat_id):
