@@ -4,16 +4,17 @@ import time
 import json
 import os
 #import telegram_send
-from recebersensores import lersensores
+from recebersensores import lersensor1
+import threading
    
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
         iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
-        self.sensor1 = lersensores()
-        #self.sensor1 = lersensor2()
-
+        self.sensor1 = lersensor1()
+        self.sensor2 = 100
+  
     #funções bot             
     def Iniciar(self):
         print('BOT INICIADO COM SUCESSO')
@@ -49,7 +50,7 @@ class TelegramBot:
             return self.sensor1
 
         elif mensagem == '2':
-            return self.sensor1
+            return self.sensor2
 
         #elif mensagem.lower() in ('s', 'sim'):
             #return ''' Pedido Confirmado! '''

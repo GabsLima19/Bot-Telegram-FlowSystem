@@ -3,7 +3,7 @@ import subprocess
 
 from requests import delete
 
-arquivos = ['recebersensores.py', 'bot.py']
+arquivos = ['sensor-bluetooth.py', 'bot.py']
 processos = []
 
 for arquivo in arquivos:
@@ -15,5 +15,5 @@ for arquivo in arquivos:
 
 for processo in processos:
     processo.wait()
-    
+   
 

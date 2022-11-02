@@ -1,4 +1,4 @@
-def lersensores():
+def lersensor1():
     while True:
         with open('dados.csv') as f:
             sensor = str(f.readlines())
@@ -7,7 +7,6 @@ def lersensores():
         sensorA = []
         sensorB = []
 
-
         for i in range(len(splitSen)):
             #print(splitSen[i])
             split = splitSen[i].split(',')
@@ -15,5 +14,9 @@ def lersensores():
                 sensorA.append(split[0])
                 sensorB.append(split[1])
 
-        return(sensorA[-1], sensorB[-1])
-        
+        return(sensorA)
+
+lersensor1()
+
+
+
