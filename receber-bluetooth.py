@@ -2,6 +2,9 @@ from dataclasses import dataclass
 import bluetooth
 #import pandas as pd
 
+#comando erro use_2to3 is invalid.
+#pip install setuptools==58
+
 #Depois de instalar as dependencias pra biblioteca pybluez, instalar a biblioteca manualmente na pasta dela.
 #comando: python setup.py install
 

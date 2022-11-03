@@ -12,7 +12,7 @@ def verificarVazamentoSensor1():
         nomes = meuArquivo.readlines()
         linha = nomes[-1]
 
-        if linha >= "0.40":
+        if linha <= "0.23":
             telegram_send.send(messages=["Vazamento Sensor 1"])
             print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSOR 1")
         time.sleep(2)
@@ -24,7 +24,7 @@ def verificarVazamentoSensor2():
         nomes = meuArquivo.readlines()
         linha = nomes[-1]
 
-        if linha >= "0.40":
+        if linha <= "0.23":
             telegram_send.send(messages=["Vazamento Sensor 2"])
             print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSOR 2")
         time.sleep(2)
@@ -34,6 +34,6 @@ if __name__ == "__main__":
     x.start()
     y = threading.Thread(target=verificarVazamentoSensor2)
     y.start()
-    
+   
 
 
