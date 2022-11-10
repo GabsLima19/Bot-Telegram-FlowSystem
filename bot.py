@@ -10,7 +10,7 @@ import threading
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
-        iTOKEN  = '5529270761:AAHeMjcqw_MIrvymA8LkIdlF7E4st5L0jq0'
+        iTOKEN  = '5529270761:AAF674MyghLU1n6HLYKLkcNCWA65TRipnhI'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
         #self.sensor1 = lersensor1()
         #self.sensor2 = 100
@@ -71,7 +71,6 @@ class TelegramBot:
             #return ''' Item não incluso! Informe o codigo do item: '''
         else:
             return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Dados do Sensor 1{os.linesep}2- Dados do Sensor 2{os.linesep}3- Dados Total{os.linesep}'''
-
 
     def responder(self, resposta, chat_id):
         iLINK_REQ = f'{self.iURL}sendMessage?chat_id={chat_id}&text={resposta}'
