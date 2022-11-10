@@ -5,7 +5,6 @@ import time
 #etapas para instalação
 #https://medium.com/@robertbracco1/how-to-write-a-telegram-bot-to-send-messages-with-python-bcdf45d0a580
 
-
 def mandarMsg():
     print("ENVIAR NOTIFICACAO SENSORES INICIADO")
     while True:
@@ -32,6 +31,6 @@ if __name__ == "__main__":
     #x.start()
     y = threading.Thread(target=mandarMsg)
     y.start()
-  
+
 
 
