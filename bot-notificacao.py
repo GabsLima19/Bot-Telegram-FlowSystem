@@ -5,35 +5,33 @@ import time
 #etapas para instalação
 #https://medium.com/@robertbracco1/how-to-write-a-telegram-bot-to-send-messages-with-python-bcdf45d0a580
 
-def verificarVazamentoSensor1():
-    print("ENVIAR NOTIFICACAO SENSOR 1 INICIADO")
+
+def mandarMsg():
+    print("ENVIAR NOTIFICACAO SENSORES INICIADO")
     while True:
-        meuArquivo = open('dados-sensor1.csv')
-        nomes = meuArquivo.readlines()
-        linha = nomes[-1]
+        ler1 = open('dados-sensor1.csv')
+        dados = ler1.readlines()
+        sensor1 = float(dados[-1])
 
-        if linha >= "0.23":
-            telegram_send.send(messages=["Vazamento Sensor 1"])
-            print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSOR 1")
-        time.sleep(2)
+        ler2 = open('dados-sensor2.csv')
+        dados2 = ler2.readlines()
+        sensor2 = float(dados2[-1])
 
-def verificarVazamentoSensor2():
-    print("ENVIAR NOTIFICACAO SENSOR 2 INICIADO")
-    while True:
-        meuArquivo = open('dados-sensor2.csv')
-        nomes = meuArquivo.readlines()
-        linha = nomes[-1]
+        diferenca = sensor1 - sensor2
 
-        if linha >= "0.23":
-            telegram_send.send(messages=["Vazamento Sensor 2"])
-            print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSOR 2")
+        if diferenca > 0.03: 
+            telegram_send.send(messages=["Possível vazamento na tubulação"])
+            print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSORES")
+
+
+        #tempo de leitura dos arquivos
         time.sleep(2)
 
 if __name__ == "__main__":
-    x = threading.Thread(target=verificarVazamentoSensor1)
-    x.start()
-    y = threading.Thread(target=verificarVazamentoSensor2)
+    #x = threading.Thread(target=verificarVazamento)
+    #x.start()
+    y = threading.Thread(target=mandarMsg)
     y.start()
-   
+  
 
 
