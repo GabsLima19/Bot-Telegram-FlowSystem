@@ -27,7 +27,7 @@ while True:
     file.write(data)
 
     #linha = linha+1
-
+    
 #print("TERMINOU DE LER")
 #file.close()
 #threading.Thread(target=teste).start()
