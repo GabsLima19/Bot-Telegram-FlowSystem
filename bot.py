@@ -10,7 +10,7 @@ import threading
 #COMEÇOBOT
 class TelegramBot:
     def __init__(self):
-        iTOKEN  = '5529270761:AAF674MyghLU1n6HLYKLkcNCWA65TRipnhI'
+        iTOKEN  = '5529270761:AAEQoQZB4DFP9GYapMAfgXc6M0_TUODl1cM'
         self.iURL = f'https://api.telegram.org/bot{iTOKEN}/'
         #self.sensor1 = lersensor1()
         #self.sensor2 = 100
@@ -43,8 +43,8 @@ class TelegramBot:
     def gerar_respostas(self, mensagem, primeira_mensagem):
         print('mensagem do cliente: ' + str(mensagem))
 
-        if primeira_mensagem == True or mensagem.lower() in (''):
-            return f'''O que deseja saber?{os.linesep}1- Fluxo de água atual{os.linesep}2- Fluxo total{os.linesep}'''
+        if primeira_mensagem == True or mensagem.lower() in ('/start'):
+            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água do Sensor 1{os.linesep}2- Fluxo de água do Sensor 2{os.linesep}3- Fluxo total{os.linesep}'''
 
         if mensagem == '1':
             meuArquivo = open('dados-sensor1.csv')
@@ -64,7 +64,7 @@ class TelegramBot:
             x = float(valor1[-1].rstrip('\n'))
             y = float(valor2[-1].rstrip('\n'))
             final = x + y
-            return (str(final) + "L")
+            return (f'{final:.2f}L')
 
         #elif mensagem.lower() in ('s', 'sim'):
             #return ''' Pedido Confirmado! '''

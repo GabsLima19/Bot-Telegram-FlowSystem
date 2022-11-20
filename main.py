@@ -15,3 +15,4 @@ for arquivo in arquivos:
 
 for processo in processos:
     processo.wait()
+    
