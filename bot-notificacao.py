@@ -14,17 +14,17 @@ def mandarMsg():
         global contador
         ler1 = open('dados-sensor1.csv')
         dados = ler1.readlines()
-        sensor1 = float(dados[-1])
+        sensor1 = dados[-1]
 
         ler2 = open('dados-sensor2.csv')
         dados2 = ler2.readlines()
-        sensor2 = float(dados2[-1])
+        sensor2 = dados2[-1]
 
-        diferenca = sensor1 - sensor2
+        diferenca = float(sensor1) - float(sensor2)
 
         if diferenca > 0.03:
             contador +=1
-            if contador == 5:
+            if contador == 21600:
               contador = 0
               telegram_send.send(messages=["Possível vazamento na tubulação"])
               print("ENVIADO NOTIFICAÇÃO DE VAZAMENTO SENSORES")

@@ -22,7 +22,7 @@ arquivo = "dados-2sensores.csv"
 
 while True:
     data = str(sock.recv(409600000).decode('utf-8'))
-    print(data)
+    #print(data)
     file = open(arquivo, "a")
     file.write(data)
 

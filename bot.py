@@ -49,28 +49,29 @@ class TelegramBot:
         if mensagem == '1':
             meuArquivo = open('dados-sensor1.csv')
             nomes = meuArquivo.readlines()
-            return nomes[-1]
+            return (nomes[-1].rstrip('\n') + "L")
 
         if mensagem == '2':
             meuArquivo = open('dados-sensor2.csv')
             nomes = meuArquivo.readlines()
-            return nomes[-1]
+            return (nomes[-1].rstrip('\n') + "L")
             
         elif mensagem == '3':
             arquivo1 = open('dados-sensor1.csv')
             arquivo2 = open('dados-sensor2.csv')
             valor1 = arquivo1.readlines()
             valor2 = arquivo2.readlines()
-            x = float(valor1[-1])
-            y = float(valor2[-1])
-            return x + y
+            x = float(valor1[-1].rstrip('\n'))
+            y = float(valor2[-1].rstrip('\n'))
+            final = x + y
+            return (str(final) + "L")
 
         #elif mensagem.lower() in ('s', 'sim'):
             #return ''' Pedido Confirmado! '''
         #elif mensagem.lower() in ('n', 'não'):
             #return ''' Item não incluso! Informe o codigo do item: '''
         else:
-            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Dados do Sensor 1{os.linesep}2- Dados do Sensor 2{os.linesep}3- Dados Total{os.linesep}'''
+            return f'''Olá! Meu nome é AquaFluxBot. Sou seu assistente da Flow System. O que deseja saber?{os.linesep}{os.linesep}1- Fluxo de água do Sensor 1{os.linesep}2- Fluxo de água do Sensor 2{os.linesep}3- Fluxo total{os.linesep}'''
 
     def responder(self, resposta, chat_id):
         iLINK_REQ = f'{self.iURL}sendMessage?chat_id={chat_id}&text={resposta}'
