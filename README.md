@@ -1,21 +1,21 @@
-# Livraria  Nova Book
+# FlowSystem
 <div align="center">
-<img src="https://github.com/GabsLima19/NovaBook/blob/main/NovaBook_Logo.jpg?raw=true&&size=250">
+<img src="https://github.com/GabsLima19/Bot-Telegram-FlowSystem/blob/main/logo-flowsystem.jpeg">
 </div>
 
 <br>
 
 ## Descrição do Projeto
-A Livraria Nova Book [Fictícia], é uma rede de livrarias consolidada com 3 lojas espalhadas pelo Rio de Janeiro. Este projeto foi elaborado para fornecer uma análise geral do empenho das 3 filiais da Nova Book, como também fornecer dados a cerca dos livros mais vendidos, perfil dos clientes e rendimento total.
+Com o intuito de evitar problemas com desperdício de água nas tubulações em estabelecimentos ou em condomínios e residências, foi criado o FlowSystem, ele é um projeto que busca monitorar as tubulações de entrada e saída de água e notificar o responsável para prevenir o desperdício e o uso excessivo de recursos decorrentes de vazamentos não identificados.
 
 <br>
 
 ## Tecnologias
-- brModelo
-- PostgreSQL
-- SQL Power Architect
-- Pentaho Data Integration
-- Power BI
+- Arduino Leonardo
+- Arduino IDE (C, C++) 
+- Water Flow Sensors
+- Python, CSV
+- Telegram Bot API
 
 <br>
 
