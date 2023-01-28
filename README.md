@@ -21,6 +21,6 @@ Com o intuito de evitar problemas com desperdício de água nas tubulações em 
 
 ## Autores
 [@Gabriel Francisco](https://github.com/GabsLima19) <br>
-[@Anderson Santos](https://github.com/AndersPotato) <br>
+[@Anderson Santos](https://github.com/Ander-Tk) <br>
 [@Juliana Lemos](https://github.com/JulianaLemosSa) <br>
 [@Lucas Souza](https://github.com/KiritoRedEyes) <br>
