@@ -1,6 +1,6 @@
 # FlowSystem
 <div align="center">
-<img src="https://github.com/GabsLima19/Bot-Telegram-FlowSystem/blob/main/logo-flowsystem.jpeg">
+<img src="https://github.com/GabsLima19/Bot-Telegram-FlowSystem/blob/main/logo-flowsystem.jpeg" height="200px" width="200px">
 </div>
 
 <br>
